@@ -19,11 +19,12 @@
 }
 
 .cards {
-    margin: 5rem;
+    margin: 7rem;
     justify-content: space-evenly;
     display: flex;
     flex-wrap: wrap;
     border: 10rem;
+    
 }
 
 .card-header {
