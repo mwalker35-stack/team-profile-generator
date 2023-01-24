@@ -1,19 +1,18 @@
 const inquirer = require('inquirer');
 const fs = require("fs");
 const path = require("path");
-// const Employee = require("./lib/Employee.js");
+
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require('./lib/Manager');
-const generatehtml = require('./src/generatehtml.js')
-const { Console } = require('console');
-const { name } = require('ejs');
-const { normalize } = require('path');
+const generateHtml = require('./src/generatehtml.js')
+
+
 const teamArray = [];
 
 
 
-
+//managers question
 function managerQuestions() {
     inquirer.prompt([
         {
@@ -46,7 +45,7 @@ function managerQuestions() {
         })
 
 }
-
+//interns quetions
 function internQ() {
     inquirer.prompt([{
         type: "input",
@@ -78,7 +77,7 @@ function internQ() {
         })
 
 }
-
+//engineers questions
 function engineerQ() {
     inquirer.prompt([{
         type: "input",
@@ -111,7 +110,7 @@ function engineerQ() {
         })
 }
 
-
+//shared question for  the employees 
 function askQuestions() {
     inquirer.prompt([
         {
@@ -122,7 +121,7 @@ function askQuestions() {
         }
     ])
         .then((userInput) => {
-            // console.log(userInput)
+            // prompts each questions set for each employee and call writehtml
             if (userInput.role === "Engineer") {
                 return engineerQ()
             } else if (userInput.role === "Intern") {
@@ -132,7 +131,7 @@ function askQuestions() {
             } else {
                 console.log(teamArray)
                 writeHTML()
-                // process.exit(0)
+              
             }
         })
 }
@@ -145,12 +144,10 @@ function init() {
     // writeHTML(userInput)
 }
 
-
-let data = 'this is going ot be a test'
-let paths = "index.txt"
+//generates the index.html file with the datat from teamArray and uses generateHtml linked in src with require('./src/generatehtml.js')
 
 const writeHTML = () => {
-    fs.writeFile(paths, data, (err) => {
+    fs.writeFile("./dist/index.html", generateHtml(teamArray), (err) => {
         if (err) {
             console.log(err)
 
@@ -159,20 +156,8 @@ const writeHTML = () => {
         }
     })
 }
-
-
-
-
-
-
-
 //Function call to initialize app
 init();
 
 
-// process.exit
-
-// if (userInput.menu !== "Finished") {
-    // return askQuestions()
-
-// } else 
+ 
