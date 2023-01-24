@@ -39,9 +39,11 @@
   If you have questions please Email: mwalke35@yahoo.com<br />
   See: GitHub:  (https://github.com/mwalker35-stack)
   https://github.com/mwalker35-stack/team-profile-generator
-  
+
 
  ![alt text](../Assets/gif%20team%20profile%20generator.gif)
+
+  ![alt text](../Assets/Screenshot%202023-01-23%2022.50.15.png)
 
 
   ## Video Link:
